@@ -1,4 +1,11 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/frozen-tears-of-socrates(.html)?", "destination": "/#ice-cream", "permanent": true },
+    { "source": "/tribute-to-bingsu(.html)?", "destination": "/#ice-cream", "permanent": true },
+    { "source": "/wicked-sherbet(.html)?", "destination": "/#ice-cream", "permanent": true },
+    { "source": "/wicked-sorbet-hallabong(.html)?", "destination": "/#ice-cream", "permanent": true },
+    { "source": "/wicked-sorbet-green-tangerine(.html)?", "destination": "/#ice-cream", "permanent": true }
+  ]
 }
