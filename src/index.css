@@ -100,6 +100,13 @@
   .doc .legal-updated {
     @apply font-sans text-xs font-semibold tracking-[0.18em] uppercase mt-6 mb-12 text-muted lg:mb-16;
   }
+  /* "Effective Date" and "Last Updated" read as one block. */
+  .doc .legal-updated:has(+ .legal-updated) {
+    @apply mb-0;
+  }
+  .doc .legal-updated + .legal-updated {
+    @apply mt-2;
+  }
   .doc h2 {
     @apply mt-14 mb-4 border-t border-line pt-9 font-serif text-[28px] leading-tight font-normal text-ink lg:text-[34px];
   }
