@@ -5,13 +5,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
-import { MarbleBackdrop } from "./components/Hero.jsx";
+import { MarbleBackdrop, SkipLink } from "./components/Hero.jsx";
 import "./index.css";
 
 function LegalHeader() {
   return (
     <div className="relative bg-hero">
       <MarbleBackdrop />
+      <SkipLink />
       <Nav />
     </div>
   );

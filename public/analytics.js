@@ -42,8 +42,9 @@
         box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
       }
       #cookieBanner p { margin: 0; max-width: 560px; line-height: 1.6; }
-      #cookieBanner a { color: #c9b48a; }
+      #cookieBanner a { color: #c9b48a; text-decoration: underline; text-underline-offset: 3px; }
       #cookieBanner .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+      #cookieBanner button:focus-visible, #cookieBanner a:focus-visible { outline: 2px solid #c9b48a; outline-offset: 3px; }
       #cookieBanner button {
         font-family: 'Hanken Grotesk', system-ui, sans-serif;
         font-size: 11px;
@@ -60,12 +61,16 @@
     document.head.appendChild(style);
   }
 
+  let returnFocusTo = null;
+
   function hideBanner() {
     const banner = document.getElementById("cookieBanner");
     if (banner) banner.remove();
+    if (returnFocusTo && document.contains(returnFocusTo)) returnFocusTo.focus();
+    returnFocusTo = null;
   }
 
-  function showBanner() {
+  function showBanner(trigger) {
     hideBanner();
     injectBannerStyles();
 
@@ -73,6 +78,8 @@
 
     const banner = document.createElement("div");
     banner.id = "cookieBanner";
+    banner.setAttribute("role", "region");
+    banner.setAttribute("aria-label", "Cookie consent");
     banner.innerHTML = `
       <p>We use cookies to understand how visitors interact with our site via Google Analytics and to improve your browsing experience. We do not use cookies for targeted advertising. Please see our <a href="/privacy.html">Privacy Policy</a> for details.</p>
       <div class="cookie-actions">
@@ -80,7 +87,12 @@
         <button class="cookie-decline" id="cookieDecline" type="button">Decline</button>
       </div>
     `;
-    document.body.appendChild(banner);
+    document.body.prepend(banner);
+    // Opened from "Cookie Settings": move focus into the banner and return it afterwards.
+    if (trigger) {
+      returnFocusTo = trigger;
+      document.getElementById("cookieAccept").focus();
+    }
 
     document.getElementById("cookieAccept").addEventListener("click", () => {
       localStorage.setItem(CONSENT_KEY, "accepted");
@@ -107,7 +119,7 @@
     const link = e.target.closest(".cookie-settings-link");
     if (link) {
       e.preventDefault();
-      showBanner();
+      showBanner(link);
     }
   });
 })();

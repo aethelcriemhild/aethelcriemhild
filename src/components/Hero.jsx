@@ -11,10 +11,22 @@ export function MarbleBackdrop() {
   );
 }
 
+export function SkipLink() {
+  return (
+    <a
+      href="#main"
+      className="sr-only z-50 bg-ink px-4 py-3 text-sm font-semibold text-cream focus:not-sr-only focus:absolute focus:top-3 focus:left-3"
+    >
+      Skip to content
+    </a>
+  );
+}
+
 export default function Hero() {
   return (
     <header id="top" className="relative overflow-hidden bg-hero">
       <MarbleBackdrop />
+      <SkipLink />
       <Nav />
 
       <div className="relative mx-auto grid max-w-[1440px] gap-12 px-5 pb-16 pt-12 md:px-10 lg:min-h-[804px] lg:grid-cols-[minmax(0,1fr)_420px] lg:items-center lg:gap-20 lg:px-[120px] lg:pb-24 lg:pt-10">

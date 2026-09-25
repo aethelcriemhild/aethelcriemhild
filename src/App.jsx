@@ -12,7 +12,7 @@ export default function App() {
   return (
     <>
       <Hero />
-      <main>
+      <main id="main">
         <Philosophy />
         <Collection />
         <Equipment />

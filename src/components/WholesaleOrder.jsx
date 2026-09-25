@@ -180,7 +180,7 @@ export default function WholesaleOrder() {
               return (
                 <label
                   key={a.id}
-                  className={`flex cursor-pointer gap-3.5 p-4.5 md:min-h-35 md:flex-col md:gap-3 md:p-5.5 ${
+                  className={`flex cursor-pointer gap-3.5 p-4.5 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-umber md:min-h-35 md:flex-col md:gap-3 md:p-5.5 ${
                     on ? "border-[1.5px] border-ink bg-cream" : "border border-line bg-white"
                   }`}
                 >
@@ -215,7 +215,7 @@ export default function WholesaleOrder() {
               return (
                 <div key={c.id} className={`flex flex-col not-last:border-b not-last:border-line-soft ${on ? "bg-paper" : "bg-white"}`}>
                   <div className="flex flex-wrap items-center gap-x-5 gap-y-3 p-4.5 lg:min-h-15 lg:px-5.5">
-                    <label className="flex grow cursor-pointer items-start gap-3.5 lg:gap-4">
+                    <label className="flex grow cursor-pointer items-start gap-3.5 lg:gap-4 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-umber">
                       <input type="checkbox" checked={on} onChange={() => toggle(c.id)} className="mt-0.5" />
                       <span className="flex flex-col gap-1">
                         <span className="font-semibold">{c.title}</span>
@@ -248,7 +248,7 @@ export default function WholesaleOrder() {
                                 low ? "border border-alert" : "border border-line-soft"
                               }`}
                             >
-                              <label className="flex min-h-11 grow cursor-pointer items-center gap-3 lg:gap-3.5">
+                              <label className="flex min-h-11 grow cursor-pointer items-center gap-3 lg:gap-3.5 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-umber">
                                 <input type="checkbox" checked={optOn} onChange={() => toggle(o.id, o.start)} />
                                 <span className="flex flex-col gap-0.5">
                                   <span className="text-[15px]">{o.label}</span>
@@ -324,16 +324,17 @@ export default function WholesaleOrder() {
           )}
 
           <p className="mt-1 text-center text-sm leading-relaxed text-body">
-            Once your form is submitted, an official invoice and payment link will be sent within 3 business days to
-            confirm your order. For any questions, please reach us through the <a href="#contact">Contact Us</a> form.
+            Submitting this form is a request for a quote, not a confirmed order. Within 3 business days we will send a
+            formal quote and invoice; your order is confirmed only upon payment of that invoice. For any questions,
+            please reach us through the <a href="#contact">Contact Us</a> form.
           </p>
 
           {status === "sent" && (
             <div role="status" className="flex flex-col gap-1.5 border border-ink px-6 py-5">
               <Eyebrow>Received</Eyebrow>
               <span className="text-[15px] leading-relaxed">
-                Thank you — your order has been received. An official invoice and payment link will follow within 3
-                business days.
+                Thank you — your order request has been received. We will send a formal quote and invoice within 3
+                business days; your order is confirmed upon payment.
               </span>
             </div>
           )}

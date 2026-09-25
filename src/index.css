@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Fonts are served from this site (not Google Fonts), so no visitor data reaches Google before consent. */
+@import "@fontsource/cormorant-garamond/latin-400.css";
+@import "@fontsource/cormorant-garamond/latin-500.css";
+@import "@fontsource/cormorant-garamond/latin-600.css";
+@import "@fontsource/cormorant-garamond/latin-700.css";
+@import "@fontsource/cormorant-garamond/latin-400-italic.css";
+@import "@fontsource/cormorant-garamond/latin-500-italic.css";
+@import "@fontsource/hanken-grotesk/latin-400.css";
+@import "@fontsource/hanken-grotesk/latin-500.css";
+@import "@fontsource/hanken-grotesk/latin-600.css";
+
 /* Brand tokens — every color/font utility (bg-cream, text-umber, font-serif…) comes from here. */
 @theme {
   --font-serif: "Cormorant Garamond", Georgia, serif;
@@ -19,6 +30,7 @@
   --color-champagne: #c9b48a;
   --color-stone: #b3aa9c;
   --color-dusk: #8c8478;
+  --color-placeholder: #6f675c; /* 5.4:1 on white */
   --color-night: #161513;
   --color-alert: #8a3b2a;
 }
@@ -33,6 +45,16 @@
   a {
     @apply text-umber transition-colors hover:text-ink;
   }
+  /* Links inside running text are underlined so they never rely on color alone. */
+  p a,
+  label a,
+  address a {
+    @apply underline decoration-1 underline-offset-3;
+  }
+  /* One consistent, clearly visible keyboard focus ring everywhere. */
+  :focus-visible {
+    @apply outline-2 outline-offset-3 outline-umber;
+  }
   input[type="checkbox"],
   input[type="radio"] {
     @apply size-5 shrink-0 accent-ink;
@@ -42,10 +64,10 @@
 @layer components {
   /* Small tracked uppercase label used across sections. */
   .eyebrow {
-    @apply font-sans text-[11px] font-semibold tracking-[0.2em] uppercase;
+    @apply font-sans text-xs font-semibold tracking-[0.18em] uppercase;
   }
   .field {
-    @apply h-13 w-full border border-line bg-white px-4 text-base text-ink placeholder:text-dusk
+    @apply h-13 w-full border border-line bg-white px-4 text-base text-ink placeholder:text-placeholder
       focus:outline-2 focus:outline-offset-1 focus:outline-ink disabled:bg-paper disabled:text-dusk;
   }
   textarea.field {
@@ -70,13 +92,13 @@
     @apply mx-auto max-w-[760px] text-base leading-[1.75] text-ink-2 lg:text-[17px];
   }
   .doc .doc-eyebrow {
-    @apply font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-umber;
+    @apply font-sans text-xs font-semibold tracking-[0.18em] uppercase text-umber;
   }
   .doc h1 {
     @apply mt-5 font-serif text-[46px] leading-none font-normal tracking-[-0.01em] text-ink lg:text-7xl;
   }
   .doc .legal-updated {
-    @apply font-sans text-[11px] font-semibold tracking-[0.2em] uppercase mt-6 mb-12 text-muted lg:mb-16;
+    @apply font-sans text-xs font-semibold tracking-[0.18em] uppercase mt-6 mb-12 text-muted lg:mb-16;
   }
   .doc h2 {
     @apply mt-14 mb-4 border-t border-line pt-9 font-serif text-[28px] leading-tight font-normal text-ink lg:text-[34px];
@@ -86,7 +108,7 @@
     @apply mt-0;
   }
   .doc h3 {
-    @apply font-sans text-[11px] font-semibold tracking-[0.2em] uppercase mt-9 mb-3 text-ink;
+    @apply font-sans text-xs font-semibold tracking-[0.18em] uppercase mt-9 mb-3 text-ink;
   }
   .doc p {
     @apply mt-4;
