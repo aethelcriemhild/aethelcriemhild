@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ACCOUNT_TYPES, CONTACT_EMAIL, ICE_CREAM_MOQ, ORDERS_OPEN, ORDER_CATEGORIES } from "../data/content.js";
 import { checkRequiredFields, submitForm } from "../data/submitForm.js";
+import { trackEvent } from "../data/track.js";
 import { ConsentCheckbox, Eyebrow, Field } from "./ui.jsx";
 
 const MESSAGES = {
@@ -111,6 +112,11 @@ export default function WholesaleOrder() {
       setChecked({});
       setQty({});
       setShowErrors(false);
+      trackEvent("order_form_submit", {
+        account_type: accountTitle,
+        order_categories: ORDER_CATEGORIES.filter((c) => checked[c.id]).map((c) => c.title).join(", "),
+        line_count: selectedLines.length,
+      });
     }
     setErrorDetail(ok ? "" : message);
     setStatus(ok ? "sent" : "error");

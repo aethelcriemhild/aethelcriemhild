@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "../data/content.js";
 import { checkRequiredFields, submitForm } from "../data/submitForm.js";
+import { trackEvent } from "../data/track.js";
 import { ConsentCheckbox, Eyebrow, Field } from "./ui.jsx";
 
 const SOCIAL_ICONS = {
@@ -35,6 +36,7 @@ function Socials() {
             href={s.href}
             target="_blank"
             rel="noopener"
+            onClick={() => trackEvent("social_click", { platform: s.name, link_url: s.href })}
             aria-label={`Aethel Criemhild on ${s.name}`}
             className="flex size-12 items-center justify-center rounded-full bg-ink transition-colors hover:bg-umber lg:size-13"
           >
@@ -88,6 +90,7 @@ export default function Contact() {
     if (ok) {
       formEl.reset();
       setShowErrors(false);
+      trackEvent("contact_form_submit");
     }
     setErrorDetail(ok ? "" : message);
     setStatus(ok ? "sent" : "error");
