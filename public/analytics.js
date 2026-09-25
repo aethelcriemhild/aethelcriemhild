@@ -96,20 +96,38 @@
 
     document.getElementById("cookieAccept").addEventListener("click", () => {
       localStorage.setItem(CONSENT_KEY, "accepted");
-      loadGA4();
+      if (!gpc) loadGA4();
       hideBanner();
     });
     document.getElementById("cookieDecline").addEventListener("click", () => {
       localStorage.setItem(CONSENT_KEY, "declined");
       hideBanner();
       if (wasAccepted) {
+        clearAnalyticsCookies();
         window.location.reload();
       }
     });
   }
 
+  // Deletes Google Analytics cookies (_ga, _ga_<ID>) for this host and its parent domain.
+  function clearAnalyticsCookies() {
+    const host = location.hostname;
+    const domains = ["", host, "." + host, "." + host.split(".").slice(-2).join(".")];
+    document.cookie.split(";").forEach((c) => {
+      const name = c.split("=")[0].trim();
+      if (!/^_ga(_|$)/.test(name)) return;
+      domains.forEach((d) => {
+        document.cookie = name + "=; Max-Age=0; path=/" + (d ? "; domain=" + d : "");
+      });
+    });
+  }
+
+  // A Global Privacy Control signal is always treated as declining analytics.
+  const gpc = navigator.globalPrivacyControl === true;
   const consent = localStorage.getItem(CONSENT_KEY);
-  if (consent === "accepted") {
+  if (gpc) {
+    clearAnalyticsCookies();
+  } else if (consent === "accepted") {
     loadGA4();
   } else if (consent !== "declined") {
     showBanner();
