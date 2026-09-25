@@ -7,10 +7,10 @@ export const CONTACT_EMAIL = "contact@criemhild.com";
 export const WEB3FORMS_ACCESS_KEY = "4eecda8f-966f-4191-ba4e-af94a1bbd983";
 
 export const NAV_LINKS = [
-  { href: "#philosophy", label: "Philosophy" },
-  { href: "#ice-cream", label: "Ice Cream" },
-  { href: "#equipment", label: "F&B Equipment" },
-  { href: "#wholesale", label: "Wholesale" },
+  { href: "/#philosophy", label: "Philosophy" },
+  { href: "/#ice-cream", label: "Ice Cream" },
+  { href: "/#equipment", label: "F&B Equipment" },
+  { href: "/#wholesale", label: "Wholesale" },
 ];
 
 export const PRINCIPLES = [
@@ -180,7 +180,7 @@ export const FOOTER_COLUMNS = [
     heading: "Company",
     links: [
       { href: "/nutrition-guide.html", label: "Nutrition Guide" },
-      { href: "#contact", label: "Contact Us" },
+      { href: "/#contact", label: "Contact Us" },
     ],
   },
 ];

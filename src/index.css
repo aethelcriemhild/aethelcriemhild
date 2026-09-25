@@ -63,6 +63,48 @@
   }
 }
 
+/* Long-form documents (privacy, terms, accessibility, nutrition guide). Plain HTML in
+   the page files is styled here, so revised text can be pasted in without extra classes. */
+@layer components {
+  .doc {
+    @apply mx-auto max-w-[760px] text-base leading-[1.75] text-ink-2 lg:text-[17px];
+  }
+  .doc .doc-eyebrow {
+    @apply font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-umber;
+  }
+  .doc h1 {
+    @apply mt-5 font-serif text-[46px] leading-none font-normal tracking-[-0.01em] text-ink lg:text-7xl;
+  }
+  .doc .legal-updated {
+    @apply font-sans text-[11px] font-semibold tracking-[0.2em] uppercase mt-6 mb-12 text-muted lg:mb-16;
+  }
+  .doc h2 {
+    @apply mt-14 mb-4 border-t border-line pt-9 font-serif text-[28px] leading-tight font-normal text-ink lg:text-[34px];
+  }
+  .doc h1 + h2,
+  .doc .legal-updated + h2 {
+    @apply mt-0;
+  }
+  .doc h3 {
+    @apply font-sans text-[11px] font-semibold tracking-[0.2em] uppercase mt-9 mb-3 text-ink;
+  }
+  .doc p {
+    @apply mt-4;
+  }
+  .doc ul {
+    @apply mt-4 list-disc space-y-2.5 pl-5 marker:text-umber;
+  }
+  .doc strong {
+    @apply font-semibold text-ink;
+  }
+  .doc a {
+    @apply text-umber underline decoration-umber/40 underline-offset-3 hover:text-ink hover:decoration-ink;
+  }
+  .doc .legal-disclaimer {
+    @apply mt-14 border border-line bg-cream px-6 py-5 text-sm leading-relaxed text-body;
+  }
+}
+
 /* After a failed submit, outline the required fields that are still missing. */
 form[data-validated] .field:invalid {
   border-color: var(--color-alert);

@@ -2,7 +2,7 @@ import Nav from "./Nav.jsx";
 import { Eyebrow } from "./ui.jsx";
 
 // Warm cream marble (pre-rendered from SVG noise) — evokes the texture of gelato without a stock photo.
-function MarbleBackdrop() {
+export function MarbleBackdrop() {
   return (
     <div
       aria-hidden="true"

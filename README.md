@@ -18,8 +18,10 @@ npm run build    # static output in dist/
 - `src/components/` — one component per section, composed in `src/App.jsx`.
 - `src/data/submitForm.js` — sends the order and contact forms through Web3Forms (the same service and key as
   the previous site).
-- `public/` — images, the legal pages, `analytics.js` (GA4 behind the cookie-consent banner), `robots.txt` and
-  `sitemap.xml`.
+- `privacy.html`, `terms.html`, `accessibility.html`, `nutrition-guide.html` — standalone document pages. Their
+  text is plain HTML inside `<article class="doc">`; headings, paragraphs, lists and links are styled
+  automatically (see `.doc` in `src/index.css`). `src/legal.jsx` adds the shared header and footer.
+- `public/` — images, `analytics.js` (GA4 behind the cookie-consent banner), `robots.txt` and `sitemap.xml`.
 
 ## Capsule photos
 
