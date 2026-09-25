@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* Brand tokens — every color/font utility (bg-cream, text-umber, font-serif…) comes from here. */
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Hanken Grotesk", system-ui, sans-serif;
+
+  --color-hero: #efe6d6;
+  --color-cream: #f4efe7;
+  --color-paper: #fbf8f3;
+  --color-sand: #e7dfd2;
+  --color-line: #d6ccbc;
+  --color-line-soft: #e7dfd2;
+  --color-ink: #1e1c19;
+  --color-ink-2: #3e3a34;
+  --color-body: #4a453e;
+  --color-muted: #5c554b;
+  --color-umber: #6e5838;
+  --color-champagne: #c9b48a;
+  --color-stone: #b3aa9c;
+  --color-dusk: #8c8478;
+  --color-night: #161513;
+  --color-alert: #8a3b2a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-night font-sans text-ink antialiased;
+  }
+  a {
+    @apply text-umber transition-colors hover:text-ink;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    @apply size-5 shrink-0 accent-ink;
+  }
+}
+
+@layer components {
+  /* Small tracked uppercase label used across sections. */
+  .eyebrow {
+    @apply font-sans text-[11px] font-semibold tracking-[0.2em] uppercase;
+  }
+  .field {
+    @apply h-13 w-full border border-line bg-white px-4 text-base text-ink placeholder:text-dusk
+      focus:outline-2 focus:outline-offset-1 focus:outline-ink disabled:bg-paper disabled:text-dusk;
+  }
+  textarea.field {
+    @apply h-28 resize-y py-3.5;
+  }
+  .btn-solid {
+    @apply inline-flex h-14 items-center justify-center gap-3 bg-ink px-8 text-sm font-semibold tracking-[0.08em]
+      text-cream uppercase transition-colors hover:bg-[#3a3630] hover:text-cream
+      focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-umber;
+  }
+  .btn-outline {
+    @apply inline-flex h-14 items-center justify-center border border-ink px-8 text-sm font-semibold
+      tracking-[0.08em] text-ink uppercase transition-colors hover:bg-ink hover:text-cream
+      focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-umber;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
