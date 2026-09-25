@@ -16,7 +16,7 @@ export const NAV_LINKS = [
 export const PRINCIPLES = [
   {
     title: "Guilt-free foundations",
-    body: "Low-sugar bases, alternative sweeteners and dietary fibre — restraint built in, never bolted on.",
+    body: "Reduced-sugar bases, alternative sweeteners and dietary fibre — restraint built in, never bolted on.",
   },
   {
     title: "Extraordinary flavor",
@@ -32,7 +32,7 @@ export const CHAPTERS = [
   {
     numeral: "I",
     name: "Virtue",
-    tagline: "Healthy, functional bases",
+    tagline: "Well-being bases",
     description: "The discipline of health — philosophy you can spoon, without compromise of taste.",
     image: "/assets/chapter-virtue.jpg",
     imageAlt: "Greek yogurt ice cream with honey in a ceramic bowl",
