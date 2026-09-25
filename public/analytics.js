@@ -74,7 +74,7 @@
     const banner = document.createElement("div");
     banner.id = "cookieBanner";
     banner.innerHTML = `
-      <p>We use cookies to understand how visitors use this site via Google Analytics. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+      <p>We use cookies to understand how visitors interact with our site via Google Analytics and to improve your browsing experience. We do not use cookies for targeted advertising. Please see our <a href="/privacy.html">Privacy Policy</a> for details.</p>
       <div class="cookie-actions">
         <button class="cookie-accept" id="cookieAccept" type="button">Accept</button>
         <button class="cookie-decline" id="cookieDecline" type="button">Decline</button>
