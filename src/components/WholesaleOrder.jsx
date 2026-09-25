@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ACCOUNT_TYPES, CONTACT_EMAIL, ICE_CREAM_MOQ, ORDER_CATEGORIES } from "../data/content.js";
+import { ACCOUNT_TYPES, CONTACT_EMAIL, ICE_CREAM_MOQ, ORDERS_OPEN, ORDER_CATEGORIES } from "../data/content.js";
 import { checkRequiredFields, submitForm } from "../data/submitForm.js";
 import { ConsentCheckbox, Eyebrow, Field } from "./ui.jsx";
 
@@ -83,6 +83,7 @@ export default function WholesaleOrder() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!ORDERS_OPEN) return;
     const formEl = e.currentTarget;
     if (!checkRequiredFields(formEl)) {
       setShowErrors(true);
@@ -291,9 +292,20 @@ export default function WholesaleOrder() {
         </ConsentCheckbox>
 
         <div className="flex flex-col gap-3.5 lg:gap-4">
-          <button type="submit" disabled={status === "sending"} className="btn-solid h-16 w-full tracking-[0.18em] disabled:opacity-60 lg:h-18 lg:text-[15px]">
+          <button
+            type="submit"
+            disabled={!ORDERS_OPEN || status === "sending"}
+            aria-describedby={ORDERS_OPEN ? undefined : "orders-closed-note"}
+            className="btn-solid h-16 w-full tracking-[0.18em] disabled:cursor-not-allowed disabled:border disabled:border-dashed disabled:border-dusk disabled:bg-sand disabled:text-muted disabled:hover:bg-sand disabled:hover:text-muted lg:h-18 lg:text-[15px]"
+          >
             {status === "sending" ? "Sending…" : "[ Submit Order ]"}
           </button>
+          {!ORDERS_OPEN && (
+            <p id="orders-closed-note" className="flex items-center justify-center gap-2 text-center text-sm text-muted">
+              <Eyebrow>Coming soon</Eyebrow>
+              <span>Online ordering opens at launch.</span>
+            </p>
+          )}
           <span className="text-center text-[13px] text-muted">
             {selectedCount === 0 ? MESSAGES.empty : `${selectedCount} of ${ORDER_CATEGORIES.length} categories selected`}
           </span>

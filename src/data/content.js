@@ -111,6 +111,9 @@ export const ACCOUNT_TYPES = [
   { id: "cafe", title: "Independent Cafe", description: "Independent cafés, dessert shops and restaurants." },
 ];
 
+// Products are still "Coming soon" — flip to true to start accepting orders through the portal.
+export const ORDERS_OPEN = false;
+
 export const ICE_CREAM_MOQ = 100;
 
 // Order portal categories. A category either takes a quantity directly (`unit`)
