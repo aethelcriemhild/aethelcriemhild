@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ACCOUNT_TYPES, CONTACT_EMAIL, ICE_CREAM_MOQ, ORDER_CATEGORIES } from "../data/content.js";
-import { submitForm } from "../data/submitForm.js";
+import { checkRequiredFields, submitForm } from "../data/submitForm.js";
 import { ConsentCheckbox, Eyebrow, Field } from "./ui.jsx";
 
 const MESSAGES = {
+  invalid: "Please complete the highlighted required fields and accept the terms before submitting.",
   empty: "Select at least one order category.",
   missingQty: "Enter a quantity for every selected item.",
   belowMin: `Some flavors are below the minimum order quantity of ${ICE_CREAM_MOQ} pcs. Please adjust the highlighted items before submitting.`,
@@ -34,7 +35,9 @@ export default function WholesaleOrder() {
   const [account, setAccount] = useState(ACCOUNT_TYPES[0].id);
   const [checked, setChecked] = useState({}); // category and option ids → bool
   const [qty, setQty] = useState({}); // category and option ids → string
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | empty | missingQty | belowMin | error
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | invalid | empty | missingQty | belowMin | error
+  const [showErrors, setShowErrors] = useState(false); // outline missing required fields after a failed submit
+  const [errorDetail, setErrorDetail] = useState("");
 
   const resetStatus = () => setStatus((s) => (s === "sending" ? s : "idle"));
 
@@ -80,11 +83,16 @@ export default function WholesaleOrder() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formEl = e.currentTarget;
+    if (!checkRequiredFields(formEl)) {
+      setShowErrors(true);
+      return setStatus("invalid");
+    }
     if (selectedLines.length === 0) return setStatus("empty");
     if (selectedLines.some((l) => !qty[l.key])) return setStatus("missingQty");
     if (anyBelowMin) return setStatus("belowMin");
 
-    const form = new FormData(e.currentTarget);
+    const form = new FormData(formEl);
     const fields = Object.fromEntries(form.entries());
     const accountTitle = ACCOUNT_TYPES.find((a) => a.id === account)?.title;
     const orderLines = selectedLines
@@ -92,16 +100,18 @@ export default function WholesaleOrder() {
       .join("\n");
 
     setStatus("sending");
-    const ok = await submitForm({
+    const { ok, message } = await submitForm({
       subject: `Order — ${fields.company || "New account"} (${accountTitle})`,
       fromName: fields.contact_person,
       fields: { ...fields, account_type: accountTitle, order_lines: orderLines },
     });
     if (ok) {
-      e.target.reset();
+      formEl.reset();
       setChecked({});
       setQty({});
+      setShowErrors(false);
     }
+    setErrorDetail(ok ? "" : message);
     setStatus(ok ? "sent" : "error");
   };
 
@@ -129,7 +139,12 @@ export default function WholesaleOrder() {
         </address>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-10 border border-line bg-white px-5 py-7 lg:gap-12 lg:p-14">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        data-validated={showErrors || undefined}
+        className="flex flex-col gap-10 border border-line bg-white px-5 py-7 lg:gap-12 lg:p-14"
+      >
         {/* Web3Forms spam honeypot — real users never see or tick it. */}
         <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
         <fieldset className="flex flex-col gap-4.5 lg:gap-5">
@@ -283,9 +298,10 @@ export default function WholesaleOrder() {
             {selectedCount === 0 ? MESSAGES.empty : `${selectedCount} of ${ORDER_CATEGORIES.length} categories selected`}
           </span>
 
-          {["empty", "missingQty", "belowMin", "error"].includes(status) && (
+          {["invalid", "empty", "missingQty", "belowMin", "error"].includes(status) && (
             <div role="alert" className="border border-alert px-5 py-4 text-sm leading-relaxed text-alert">
               {MESSAGES[status]}
+              {status === "error" && errorDetail && <span className="mt-1 block">Details: {errorDetail}</span>}
             </div>
           )}
 

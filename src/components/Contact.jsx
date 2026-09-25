@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "../data/content.js";
-import { submitForm } from "../data/submitForm.js";
+import { checkRequiredFields, submitForm } from "../data/submitForm.js";
 import { ConsentCheckbox, Eyebrow, Field } from "./ui.jsx";
 
 const SOCIAL_ICONS = {
@@ -67,18 +67,29 @@ function ContactDetails() {
 }
 
 export default function Contact() {
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | invalid | error
+  const [showErrors, setShowErrors] = useState(false);
+  const [errorDetail, setErrorDetail] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const fields = Object.fromEntries(new FormData(e.currentTarget).entries());
+    const formEl = e.currentTarget;
+    if (!checkRequiredFields(formEl)) {
+      setShowErrors(true);
+      return setStatus("invalid");
+    }
+    const fields = Object.fromEntries(new FormData(formEl).entries());
     setStatus("sending");
-    const ok = await submitForm({
+    const { ok, message } = await submitForm({
       subject: fields.subject || "Website contact",
       fromName: `${fields.first_name} ${fields.last_name}`.trim(),
       fields,
     });
-    if (ok) e.target.reset();
+    if (ok) {
+      formEl.reset();
+      setShowErrors(false);
+    }
+    setErrorDetail(ok ? "" : message);
     setStatus(ok ? "sent" : "error");
   };
 
@@ -101,7 +112,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} noValidate data-validated={showErrors || undefined} className="flex flex-col gap-5">
           <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
           <div className="grid gap-5 sm:grid-cols-2">
             <Field id="first_name" label="First name" required autoComplete="given-name" />
@@ -129,9 +140,15 @@ export default function Contact() {
                 Thank you — we’ll be in touch shortly.
               </span>
             )}
+            {status === "invalid" && (
+              <span role="alert" className="text-[15px] text-alert">
+                Please complete the highlighted required fields and accept the terms.
+              </span>
+            )}
             {status === "error" && (
               <span role="alert" className="text-[15px] text-alert">
                 Something went wrong. Please try again, or email us at {CONTACT_EMAIL}.
+                {errorDetail && <span className="block">Details: {errorDetail}</span>}
               </span>
             )}
           </div>
