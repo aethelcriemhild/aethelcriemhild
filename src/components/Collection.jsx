@@ -1,4 +1,4 @@
-import { CHAPTERS } from "../data/content.js";
+import { CHAPTERS, WHOLESALE_LINK, sectionNumber } from "../data/content.js";
 import { ArrowIcon, Eyebrow } from "./ui.jsx";
 
 function ChapterCard({ chapter }) {
@@ -30,7 +30,7 @@ export default function Collection() {
     <section id="ice-cream" className="flex flex-col gap-10 bg-cream py-24 lg:gap-18 lg:px-[120px] lg:py-40">
       <div className="grid gap-6 px-5 md:px-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end lg:gap-20 lg:px-0">
         <div className="flex flex-col gap-5 lg:gap-7">
-          <Eyebrow>II · The Ice Cream Collection</Eyebrow>
+          <Eyebrow>{sectionNumber("ice-cream")} · The Ice Cream Collection</Eyebrow>
           <h2 className="font-serif text-[46px] leading-none font-normal tracking-[-0.01em] lg:text-[80px]">
             Four chapters,
             <br />
@@ -47,10 +47,10 @@ export default function Collection() {
             indulgence. Choose your path to Eudaimonia.
           </p>
           <a
-            href="#wholesale"
+            href={WHOLESALE_LINK.href}
             className="inline-flex items-center gap-3 self-start border-b border-ink pb-1.5 text-sm font-semibold tracking-[0.08em] text-ink uppercase no-underline"
           >
-            Place a wholesale order
+            {WHOLESALE_LINK.collectionLabel}
             <ArrowIcon />
           </a>
         </div>

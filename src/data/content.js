@@ -6,11 +6,27 @@ export const CONTACT_EMAIL = "contact@criemhild.com";
 // Web3Forms key already used by the current site's contact form (public by design).
 export const WEB3FORMS_ACCESS_KEY = "4eecda8f-966f-4191-ba4e-af94a1bbd983";
 
+// ── Order portal switch ─────────────────────────────────────────────────────────
+// false: the Criemhild Order Portal section is hidden and every "Wholesale" link and
+//        button points to the Contact form instead.
+// true:  the portal is shown again and those links point back to it.
+export const SHOW_ORDER_PORTAL = false;
+
+// Where "Wholesale" links go, and what they say, depending on the switch above.
+export const WHOLESALE_LINK = SHOW_ORDER_PORTAL
+  ? { href: "#wholesale", heroLabel: "Wholesale Order", collectionLabel: "Place a wholesale order", refillsLabel: "Order refills" }
+  : { href: "#contact", heroLabel: "Wholesale Inquiry", collectionLabel: "Wholesale inquiries", refillsLabel: "Inquire about refills" };
+
+// Homepage section numbers (I, II, …) follow whichever sections are shown.
+const SECTION_ORDER = ["philosophy", "ice-cream", "equipment", ...(SHOW_ORDER_PORTAL ? ["wholesale"] : []), "future", "contact"];
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
+export const sectionNumber = (id) => ROMAN[SECTION_ORDER.indexOf(id)];
+
 export const NAV_LINKS = [
   { href: "/#philosophy", label: "Philosophy" },
   { href: "/#ice-cream", label: "Ice Cream" },
   { href: "/#equipment", label: "F&B Equipment" },
-  { href: "/#wholesale", label: "Wholesale" },
+  { href: "/" + WHOLESALE_LINK.href, label: "Wholesale" },
 ];
 
 export const PRINCIPLES = [

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CAPSULE_FLAVORS, EQUIPMENT_PLACEHOLDERS, SNOWMAN } from "../data/content.js";
+import { CAPSULE_FLAVORS, EQUIPMENT_PLACEHOLDERS, SNOWMAN, WHOLESALE_LINK, sectionNumber } from "../data/content.js";
 import SnowmanDrawing from "./SnowmanDrawing.jsx";
 import { ArrowIcon, Eyebrow, PlusIcon } from "./ui.jsx";
 
@@ -134,8 +134,8 @@ function CapsuleCard() {
       <p className="text-[15px] leading-relaxed text-body">
         Launching in Milk and Mango — with several dozen more flavors in development.
       </p>
-      <a href="#wholesale" className="mt-auto text-[13px] font-semibold tracking-[0.08em] text-ink uppercase underline">
-        Order refills
+      <a href={WHOLESALE_LINK.href} className="mt-auto text-[13px] font-semibold tracking-[0.08em] text-ink uppercase underline">
+        {WHOLESALE_LINK.refillsLabel}
       </a>
     </article>
   );
@@ -162,7 +162,7 @@ export default function Equipment() {
     <section id="equipment" className="flex flex-col gap-8 bg-sand px-5 py-24 md:px-10 lg:gap-16 lg:px-[120px] lg:py-40">
       <div className="flex flex-col gap-5 border-b border-ink pb-6 lg:flex-row lg:items-end lg:justify-between lg:pb-8">
         <div className="flex flex-col gap-5 lg:gap-7">
-          <Eyebrow>III · F&amp;B Equipment &amp; Innovations</Eyebrow>
+          <Eyebrow>{sectionNumber("equipment")} · F&amp;B Equipment &amp; Innovations</Eyebrow>
           <h2 className="font-serif text-[46px] leading-none font-normal tracking-[-0.01em] lg:text-[80px]">
             Engineered
             <br />

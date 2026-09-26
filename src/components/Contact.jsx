@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CONTACT_EMAIL, SOCIAL_LINKS } from "../data/content.js";
+import { CONTACT_EMAIL, SHOW_ORDER_PORTAL, SOCIAL_LINKS, sectionNumber } from "../data/content.js";
 import { checkRequiredFields, submitForm } from "../data/submitForm.js";
 import { trackEvent } from "../data/track.js";
 import { ConsentCheckbox, Eyebrow, Field } from "./ui.jsx";
@@ -101,13 +101,13 @@ export default function Contact() {
       <div className="grid gap-9 border border-line bg-paper px-5.5 py-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:gap-24 lg:p-20">
         <div className="flex flex-col justify-between gap-16">
           <div className="flex flex-col gap-6">
-            <Eyebrow>VI · Contact</Eyebrow>
+            <Eyebrow>{sectionNumber("contact")} · Contact</Eyebrow>
             <h2 className="font-serif text-[46px] leading-none font-normal lg:text-7xl">
               Get in <em>Touch</em>
             </h2>
             <p className="font-serif text-[22px] leading-normal text-ink-2 lg:text-[26px]">We’d like to hear from you.</p>
             <p className="text-base leading-relaxed text-body">
-              For pricing quotes, catalog requests, or any other inquiries — or if you just want to say hi — please use the contact form.
+              {SHOW_ORDER_PORTAL ? "For" : "For wholesale orders,"} pricing quotes, catalog requests, or any other inquiries — or if you just want to say hi — please use the contact form.
             </p>
           </div>
           <div className="hidden lg:block">

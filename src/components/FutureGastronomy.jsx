@@ -1,4 +1,5 @@
 import { Eyebrow } from "./ui.jsx";
+import { sectionNumber } from "../data/content.js";
 
 export default function FutureGastronomy() {
   return (
@@ -15,7 +16,7 @@ export default function FutureGastronomy() {
         <circle cx="720" cy="300" r="270" stroke="#36322D" />
         <line x1="-2000" y1="299.5" x2="3440" y2="299.5" stroke="#5C554B" />
       </svg>
-      <Eyebrow className="text-champagne">V · Future Gastronomy</Eyebrow>
+      <Eyebrow className="text-champagne">{sectionNumber("future")} · Future Gastronomy</Eyebrow>
       <h2 className="max-w-[980px] font-serif text-[42px] leading-[1.05] font-normal lg:text-[76px]">
         Expanding the Horizon of
         <br className="hidden lg:block" /> <em>Mindful Gastronomy.</em>

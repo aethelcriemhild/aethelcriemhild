@@ -23,6 +23,13 @@ npm run build    # static output in dist/
   automatically (see `.doc` in `src/index.css`). `src/legal.jsx` adds the shared header and footer.
 - `public/` — images, `analytics.js` (GA4 behind the cookie-consent banner), `robots.txt` and `sitemap.xml`.
 
+## Order portal switches (`src/data/content.js`)
+
+- `SHOW_ORDER_PORTAL` — `false` hides the Criemhild Order Portal section; every "Wholesale" link and button
+  then points to the Contact form, and section numbers renumber automatically. Set to `true` to bring it back.
+- `ORDERS_OPEN` — with the portal shown, `false` keeps the Submit button disabled ("Coming soon");
+  `true` accepts orders.
+
 ## Capsule photos
 
 Set `image` on a flavor in `CAPSULE_FLAVORS` (e.g. `"/assets/bingsu-milk.jpg"`) to replace its

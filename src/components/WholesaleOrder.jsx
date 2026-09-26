@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ACCOUNT_TYPES, CONTACT_EMAIL, ICE_CREAM_MOQ, ORDERS_OPEN, ORDER_CATEGORIES } from "../data/content.js";
+import { ACCOUNT_TYPES, CONTACT_EMAIL, ICE_CREAM_MOQ, ORDERS_OPEN, ORDER_CATEGORIES, sectionNumber } from "../data/content.js";
 import { checkRequiredFields, submitForm } from "../data/submitForm.js";
 import { trackEvent } from "../data/track.js";
 import { ConsentCheckbox, Eyebrow, Field } from "./ui.jsx";
@@ -128,7 +128,7 @@ export default function WholesaleOrder() {
       className="grid gap-9 bg-cream px-5 py-24 md:px-10 lg:grid-cols-[400px_minmax(0,1fr)] lg:items-start lg:gap-20 lg:px-[120px] lg:py-40"
     >
       <div className="flex flex-col gap-5 lg:gap-8">
-        <Eyebrow>IV · Wholesale</Eyebrow>
+        <Eyebrow>{sectionNumber("wholesale")} · Wholesale</Eyebrow>
         <h2 className="font-serif text-[44px] leading-none font-normal lg:text-[64px]">
           Criemhild
           <br />

@@ -1,4 +1,4 @@
-import { PRINCIPLES } from "../data/content.js";
+import { PRINCIPLES, sectionNumber } from "../data/content.js";
 import { Eyebrow } from "./ui.jsx";
 
 // Restraint ←— Golden Mean —→ Pleasure
@@ -36,7 +36,7 @@ export default function Philosophy() {
     >
       <div className="flex max-w-[880px] flex-col items-center gap-6 text-center lg:gap-8">
         <img src="/assets/emblem-gold.webp" alt="Aethel Criemhild emblem — Spoon with Purpose" className="h-22 w-auto lg:h-28" />
-        <Eyebrow>I · Our Philosophy</Eyebrow>
+        <Eyebrow>{sectionNumber("philosophy")} · Our Philosophy</Eyebrow>
         <span className="font-serif text-2xl text-muted italic lg:text-3xl">εὐδαιμονία</span>
         <h2 className="font-serif text-[46px] leading-[1.02] font-normal tracking-[-0.01em] lg:text-[80px]">
           Eudaimonia, and

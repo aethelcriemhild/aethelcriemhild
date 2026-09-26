@@ -1,5 +1,6 @@
 import Nav from "./Nav.jsx";
 import { Eyebrow } from "./ui.jsx";
+import { WHOLESALE_LINK } from "../data/content.js";
 
 // Warm cream marble (pre-rendered from SVG noise) — evokes the texture of gelato without a stock photo.
 export function MarbleBackdrop() {
@@ -44,8 +45,8 @@ export default function Hero() {
             <a href="#ice-cream" className="btn-solid">
               Explore Ice Cream
             </a>
-            <a href="#wholesale" className="btn-outline">
-              Wholesale Order
+            <a href={WHOLESALE_LINK.href} className="btn-outline">
+              {WHOLESALE_LINK.heroLabel}
             </a>
           </div>
         </div>
