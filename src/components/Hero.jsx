@@ -45,7 +45,7 @@ export default function Hero() {
               Explore Ice Cream
             </a>
             <a href="#wholesale" className="btn-outline">
-              Wholesale Inquiry
+              Wholesale Order
             </a>
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function Hero() {
         <figure className="mx-auto flex w-60 flex-col items-center gap-6 sm:w-80 lg:w-[420px]">
           <div className="aspect-[420/580] w-full overflow-hidden rounded-full bg-[#D9CDB8] shadow-[0_0_0_14px_rgba(255,255,255,0.35)]">
             <img
-              src="/assets/hero-bowl.png"
+              src="/assets/hero-bowl.webp"
               alt="Two scoops of ice cream in a ceramic bowl on marble, an olive branch beside"
               className="size-full object-cover"
             />

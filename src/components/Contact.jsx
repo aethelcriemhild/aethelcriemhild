@@ -107,7 +107,7 @@ export default function Contact() {
             </h2>
             <p className="font-serif text-[22px] leading-normal text-ink-2 lg:text-[26px]">We’d like to hear from you.</p>
             <p className="text-base leading-relaxed text-body">
-              If you have any inquiries or just want to say hi, please use the contact form.
+              For pricing quotes, catalog requests, or any other inquiries — or if you just want to say hi — please use the contact form.
             </p>
           </div>
           <div className="hidden lg:block">

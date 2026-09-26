@@ -56,11 +56,11 @@ function FlagshipCard() {
         </p>
 
         <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:gap-4">
-          <a href="#wholesale" className="btn-solid h-13 text-[13px]">
+          <a href="#contact" className="btn-solid h-13 text-[13px]">
             Request a quote <ArrowIcon />
           </a>
-          <a href="#wholesale" className="btn-outline h-13 text-[13px]">
-            Spec sheet
+          <a href="#contact" className="btn-outline h-13 text-[13px]">
+            Request spec sheet
           </a>
         </div>
       </div>

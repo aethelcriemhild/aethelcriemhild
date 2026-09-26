@@ -35,7 +35,7 @@ export default function Philosophy() {
       className="flex flex-col items-center gap-14 bg-paper px-5 py-24 md:px-10 lg:gap-22 lg:px-[120px] lg:py-42"
     >
       <div className="flex max-w-[880px] flex-col items-center gap-6 text-center lg:gap-8">
-        <img src="/assets/emblem-gold.png" alt="Aethel Criemhild emblem — Spoon with Purpose" className="h-22 w-auto lg:h-28" />
+        <img src="/assets/emblem-gold.webp" alt="Aethel Criemhild emblem — Spoon with Purpose" className="h-22 w-auto lg:h-28" />
         <Eyebrow>I · Our Philosophy</Eyebrow>
         <span className="font-serif text-2xl text-muted italic lg:text-3xl">εὐδαιμονία</span>
         <h2 className="font-serif text-[46px] leading-[1.02] font-normal tracking-[-0.01em] lg:text-[80px]">

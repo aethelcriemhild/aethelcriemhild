@@ -135,7 +135,7 @@ export default function WholesaleOrder() {
           <em>Order Portal</em>
         </h2>
         <p className="text-base leading-relaxed text-body lg:text-[17px]">
-          For franchises, distributors and independent cafés. For pricing quotes, please reach us through the{" "}
+          For franchises, distributors and independent cafés. For pricing quotes and our catalog, please reach us through the{" "}
           <a href="#contact">Contact Us</a> form.
         </p>
         <address className="flex flex-col gap-1.5 text-[15px] not-italic lg:gap-2">
@@ -324,17 +324,17 @@ export default function WholesaleOrder() {
           )}
 
           <p className="mt-1 text-center text-sm leading-relaxed text-body">
-            Submitting this form is a request for a quote, not a confirmed order. Within 3 business days we will send a
-            formal quote and invoice; your order is confirmed only upon payment of that invoice. For any questions,
-            please reach us through the <a href="#contact">Contact Us</a> form.
+            Within 3 business days of receiving your order, we will send a formal invoice. Your order is confirmed
+            upon payment of that invoice. For pricing quotes, our catalog, or any questions, please reach us through the{" "}
+            <a href="#contact">Contact Us</a> form.
           </p>
 
           {status === "sent" && (
             <div role="status" className="flex flex-col gap-1.5 border border-ink px-6 py-5">
               <Eyebrow>Received</Eyebrow>
               <span className="text-[15px] leading-relaxed">
-                Thank you — your order request has been received. We will send a formal quote and invoice within 3
-                business days; your order is confirmed upon payment.
+                Thank you — your order has been received. We will send a formal invoice within 3 business days; your
+                order is confirmed upon payment.
               </span>
             </div>
           )}

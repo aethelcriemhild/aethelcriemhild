@@ -8,7 +8,7 @@ export default function Nav() {
     <nav aria-label="Primary" className="relative z-20 border-b border-ink/12">
       <div className="mx-auto flex h-18 max-w-[1440px] items-center justify-between pl-5 pr-2 md:px-10 lg:h-24 lg:px-[120px]">
         <a href="/#top" aria-label="Aethel Criemhild — home" className="block">
-          <img src="/assets/logo-horizontal-black.png" alt="Aethel Criemhild" className="h-11 w-auto lg:h-15" />
+          <img src="/assets/logo-horizontal-black.webp" alt="Aethel Criemhild" className="h-11 w-auto lg:h-15" />
         </a>
 
         <ul className="hidden items-center gap-7 text-sm font-medium tracking-[0.04em] lg:flex">

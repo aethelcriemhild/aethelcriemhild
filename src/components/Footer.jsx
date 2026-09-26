@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="grid grid-cols-2 gap-x-5 gap-y-10 border-b border-[#36322D] pb-12 lg:grid-cols-[minmax(0,2fr)_repeat(3,minmax(0,1fr))] lg:gap-12 lg:pb-18">
         <div className="col-span-2 lg:col-span-1">
           <img
-            src="/assets/logo-stacked-white.png"
+            src="/assets/logo-stacked-white.webp"
             alt="Aethel Criemhild — Spoon with Purpose"
             className="w-50 lg:w-60"
             loading="lazy"
