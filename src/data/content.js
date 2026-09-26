@@ -16,7 +16,7 @@ export const NAV_LINKS = [
 export const PRINCIPLES = [
   {
     title: "Guilt-free foundations",
-    body: "Reduced-sugar bases, alternative sweeteners and dietary fibre — restraint built in, never bolted on.",
+    body: "Reduced-sugar bases, alternative sweeteners and dietary fiber — restraint built in, never bolted on.",
   },
   {
     title: "Extraordinary flavor",
