@@ -54,7 +54,7 @@ export default function Hero() {
             Philosophy-led desserts and indulgent treats.
           </p>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <a href="/#collections" className="btn-solid">
+            <a href="/#collections" className="btn-solid bg-olive hover:bg-[#363d2c]">
               Explore the collections
             </a>
             <a href="/philosophy" className="btn-outline">
