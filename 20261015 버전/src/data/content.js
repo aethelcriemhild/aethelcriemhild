@@ -84,9 +84,12 @@ export const COLLECTIONS = [
     image: "/assets/chapter-tribute.webp",
     imageAlt: "A dessert in a dark stone bowl beside cinnamon sticks",
     body: [
-      "Tribute reimagines beloved traditional foods with respect for the recipes that came first. Our first tribute is Sujeonggwa, a traditional Korean beverage given a new dessert expression. More traditions are in development.",
+      "Tribute reimagines beloved traditional foods with respect for the recipes that came first. Our first tributes are Horchata and Sujeonggwa — two traditional beverages, each given a new dessert expression. More traditions are in development.",
     ],
-    products: [{ name: "Sujeonggwa", status: "Coming soon" }],
+    products: [
+      { name: "Horchata", status: "Coming soon" },
+      { name: "Sujeonggwa", status: "Coming soon" },
+    ],
     meta: "Tribute, the third Aethel Criemhild collection — beloved traditional foods reimagined with reverence.",
   },
   {

@@ -130,7 +130,7 @@ export default function CollectionPage({ slug }) {
             <h2 id="products-heading" className="eyebrow text-umber">
               In this collection
             </h2>
-            <div className={`grid gap-5 lg:gap-6 ${c.products.length > 1 ? "md:grid-cols-3" : "md:max-w-[520px]"}`}>
+            <div className={`grid gap-5 lg:gap-6 ${c.products.length > 2 ? "md:grid-cols-3" : c.products.length === 2 ? "md:max-w-[800px] md:grid-cols-2" : "md:max-w-[520px]"}`}>
               {c.products.map((p) => (
                 <ProductCard key={p.name} product={p} accent={c.accent} />
               ))}
