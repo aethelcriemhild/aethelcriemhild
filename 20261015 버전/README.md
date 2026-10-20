@@ -13,8 +13,7 @@ npm run build    # static output in dist/
 
 | URL | File | Component |
 |---|---|---|
-| `/` | `index.html` | `Home` in `src/main.jsx` (Hero, Philosophy, Collection, Desserts) |
-| `/philosophy` | `philosophy.html` | `src/pages/PhilosophyPage.jsx` |
+| `/` (philosophy at `/#philosophy`) | `index.html` | `Home` in `src/main.jsx` (Hero, Philosophy, Collection, Ritual, Desserts, closing band) |
 | `/virtue` `/origin` `/tribute` `/wicked` | `virtue.html` … | `src/pages/CollectionPage.jsx` |
 | `/frozen-tears-of-socrates` `/dondurma` | `frozen-tears-of-socrates.html` … | `src/pages/ProductPage.jsx` |
 | `/contact` (`?type=trade` preselects Trade & Wholesale) | `contact.html` | `src/pages/ContactPage.jsx` |

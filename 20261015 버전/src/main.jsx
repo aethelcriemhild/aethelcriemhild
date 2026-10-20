@@ -7,7 +7,6 @@ import Collection from "./components/Collection.jsx";
 import { ClosingBand, MeetTheDesserts } from "./components/Desserts.jsx";
 import Ritual from "./components/Ritual.jsx";
 import Footer from "./components/Footer.jsx";
-import PhilosophyPage from "./pages/PhilosophyPage.jsx";
 import CollectionPage from "./pages/CollectionPage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
@@ -37,7 +36,6 @@ function Home() {
 
 const PAGES = {
   home: () => <Home />,
-  philosophy: () => <PhilosophyPage />,
   virtue: () => <CollectionPage slug="virtue" />,
   origin: () => <CollectionPage slug="origin" />,
   tribute: () => <CollectionPage slug="tribute" />,

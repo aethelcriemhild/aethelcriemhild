@@ -8,7 +8,7 @@ export const CONTACT_EMAIL = "contact@criemhild.com";
 export const WEB3FORMS_ACCESS_KEY = "4eecda8f-966f-4191-ba4e-af94a1bbd983";
 
 export const NAV_LINKS = [
-  { href: "/philosophy", label: "Philosophy" },
+  { href: "/#philosophy", label: "Philosophy" },
   { href: "/virtue", label: "Virtue" },
   { href: "/origin", label: "Origin" },
   { href: "/tribute", label: "Tribute" },
@@ -18,7 +18,6 @@ export const NAV_LINKS = [
 
 // Old one-page anchors → their new homes (the server never sees "#…", so this runs in the browser).
 export const LEGACY_ANCHORS = {
-  "#philosophy": "/philosophy",
   "#ice-cream": "/#collections",
   "#equipment": "/contact?type=trade",
   "#wholesale": "/contact?type=trade",
@@ -31,10 +30,16 @@ export const IMAGERY_NOTE =
   "Collection imagery sets the mood of our brand. It does not represent final products or packaging.";
 export const FOOTER_NOTE = "Brand preview · Products not yet available";
 
-export const HOME_PHILOSOPHY =
-  "Aethel Criemhild brings the wisdom of ancient Greek philosophy to desserts and indulgent treats — balancing discipline and delight so that every spoonful serves a purpose.";
+// Home · I — the philosophy essay.
+export const PHILOSOPHY_ESSAY = [
+  "Long before dessert was a category, the philosophers of ancient Greece asked what it means to live well. Aristotle called the answer <em>eudaimonia</em> — a life that flourishes — and found it not in excess or denial, but in the Golden Mean between them.",
+  "Aethel Criemhild takes that idea to the table. We are a brand of desserts and indulgent treats, built on the belief that every pleasure deserves a purpose. That belief begins with a simple invitation: pause, consider, and enjoy.",
+  "Our four collections give that invitation different forms. Virtue practices the art of measure. Origin respects the original character of a dessert. Tribute honors the traditional foods of many cultures through a new expression. Wicked makes room for vivid delight. Each offers its own perspective; together, they create a considered whole.",
+  "There is no single mood for every table, and no single answer to what makes a moment worth savoring. Some moments invite restraint, others curiosity, remembrance, or pleasure. Our collections give those impulses a place beside one another, without asking one to stand for everything.",
+  "This is philosophy as a way of looking at the everyday: a question, a choice, a small spoonful worth thinking about.",
+];
 
-// Philosophy page: three ideas under the essay.
+// Home · I — three ideas under the essay.
 export const PRINCIPLES = [
   {
     title: "A life well savored",
@@ -176,7 +181,7 @@ export const FOOTER_COLUMNS = [
   {
     heading: "Explore",
     links: [
-      { href: "/philosophy", label: "Philosophy" },
+      { href: "/#philosophy", label: "Philosophy" },
       { href: "/frozen-tears-of-socrates", label: "Frozen Tears of Socrates" },
       { href: "/dondurma", label: "Aethel Criemhild Dondurma" },
       { href: "/contact", label: "Contact" },

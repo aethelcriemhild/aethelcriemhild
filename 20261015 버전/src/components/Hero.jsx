@@ -57,7 +57,7 @@ export default function Hero() {
             <a href="/#collections" className="btn-solid bg-olive hover:bg-[#363d2c]">
               Explore the collections
             </a>
-            <a href="/philosophy" className="btn-outline">
+            <a href="/#philosophy" className="btn-outline">
               Our philosophy
             </a>
           </div>

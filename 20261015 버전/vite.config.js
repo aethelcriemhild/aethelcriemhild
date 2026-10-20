@@ -6,7 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 // Multi-page build: every page is its own .html file (served without ".html" on Vercel via cleanUrls).
 const pages = [
   "index",
-  "philosophy",
   "virtue",
   "origin",
   "tribute",

@@ -141,7 +141,7 @@ export default function CollectionPage({ slug }) {
         <OtherCollections current={slug} />
 
         <section className="flex justify-center bg-paper px-5 py-16 lg:py-20">
-          <ArrowLink href="/philosophy" className="text-ink">
+          <ArrowLink href="/#philosophy" className="text-ink">
             Read our philosophy
           </ArrowLink>
         </section>
