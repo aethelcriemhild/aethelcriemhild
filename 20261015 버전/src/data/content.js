@@ -105,9 +105,9 @@ export const COLLECTIONS = [
       "A life of virtue makes room for pleasure. Wicked is our case for pure delight: a collection with a vivid point of view. Balance is the whole; Wicked is the part that makes you smile.",
     ],
     products: [
-      { name: "Yogurt", status: "Coming soon" },
-      { name: "Jeju Green Tangerine", status: "Coming soon" },
-      { name: "Jeju Hallabong", status: "Coming soon" },
+      { name: "Korean Yogurt Sherbet", status: "Coming soon" },
+      { name: "Green Tangerine Sorbet", status: "Coming soon" },
+      { name: "Jeju Hallabong Sorbet", status: "Coming soon" },
     ],
     meta: "Wicked, the fourth Aethel Criemhild collection — pleasure, unapologetic.",
   },
