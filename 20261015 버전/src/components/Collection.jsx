@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { COLLECTIONS } from "../data/content.js";
+import { COLLECTIONS, IMAGERY_NOTE } from "../data/content.js";
 import { ArrowIcon, Eyebrow } from "./ui.jsx";
 
 const HeadingTag = ({ level, ...props }) => (level === 2 ? <h2 {...props} /> : <h3 {...props} />);
@@ -117,9 +117,13 @@ function FlipCard({ collection, headingLevel }) {
 }
 
 /** The four collections: flip cards on small screens, a four-column grid on desktop. */
+export function ImageryNote({ className = "" }) {
+  return <p className={`text-[13px] leading-relaxed text-muted ${className}`}>{IMAGERY_NOTE}</p>;
+}
+
 export function CollectionCards({ headingLevel = 3 }) {
   return (
-    <>
+    <div className="flex flex-col gap-6 lg:gap-8">
       <div className="flex flex-col gap-4 lg:hidden">
         <p className="eyebrow flex items-center justify-center gap-2 text-umber">
           <FlipIcon className="size-3.5" /> Tap a card to flip
@@ -135,7 +139,8 @@ export function CollectionCards({ headingLevel = 3 }) {
           <CollectionCard key={c.slug} collection={c} headingLevel={headingLevel} />
         ))}
       </div>
-    </>
+      <ImageryNote />
+    </div>
   );
 }
 

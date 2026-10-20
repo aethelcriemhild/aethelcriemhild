@@ -1,4 +1,4 @@
-import { CONTACT_EMAIL, FOOTER_COLUMNS } from "../data/content.js";
+import { CONTACT_EMAIL, FOOTER_COLUMNS, FOOTER_NOTE } from "../data/content.js";
 import { Eyebrow, Socials } from "./ui.jsx";
 
 export default function Footer() {
@@ -32,9 +32,10 @@ export default function Footer() {
           </nav>
         ))}
       </div>
-      <p className="pt-8 text-center text-xs tracking-[0.04em] text-stone lg:pt-12 lg:text-[13px]">
-        © 2026 Criemhild, Inc. All rights reserved.
-      </p>
+      <div className="flex flex-col gap-2 pt-8 text-center text-xs tracking-[0.04em] text-stone lg:pt-12 lg:text-[13px]">
+        <p>© 2026 Criemhild, Inc. All rights reserved.</p>
+        <p>{FOOTER_NOTE}</p>
+      </div>
     </footer>
   );
 }

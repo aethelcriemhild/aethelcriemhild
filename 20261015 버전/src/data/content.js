@@ -25,6 +25,12 @@ export const LEGACY_ANCHORS = {
   "#contact": "/contact",
 };
 
+// Pre-launch notices: the desserts are not on sale yet, and the collection photos are mood images.
+export const PRELAUNCH_NOTE = "A new chapter is coming. Not yet available.";
+export const IMAGERY_NOTE =
+  "Collection imagery sets the mood of our brand. It does not represent final products or packaging.";
+export const FOOTER_NOTE = "Brand preview · Products not yet available";
+
 export const HOME_PHILOSOPHY =
   "Aethel Criemhild brings the wisdom of ancient Greek philosophy to desserts and indulgent treats — balancing discipline and delight so that every spoonful serves a purpose.";
 
@@ -43,7 +49,7 @@ export const COLLECTIONS = [
       "Virtue is the discipline of choosing well. Inspired by <em>sophrosyne</em> — the Greek ideal of self-command — this collection is built on balance: every element considered, nothing in excess. Its first expression, Frozen Tears of Socrates, is a frozen Greek yogurt dessert with a bright, tangy character.",
     ],
     products: [
-      { name: "Frozen Tears of Socrates", detail: "Frozen Greek Yogurt Dessert", href: "/frozen-tears-of-socrates" },
+      { name: "Frozen Tears of Socrates", detail: "Frozen Greek Yogurt Dessert", status: "Coming soon", href: "/frozen-tears-of-socrates" },
     ],
     meta: "Virtue, the first Aethel Criemhild collection — the art of measure, inspired by the Greek ideal of sophrosyne.",
   },
@@ -106,6 +112,7 @@ export const PRODUCTS = {
     collection: "virtue",
     name: "Frozen Tears of Socrates",
     descriptor: "Frozen Greek Yogurt Dessert",
+    status: "Coming soon",
     body: "Bright, tangy, and considered. Frozen Tears of Socrates brings the art of measure to a frozen Greek yogurt dessert.",
     image: "/assets/fts-pint.webp",
     imageAlt: "A pint of Frozen Tears of Socrates on marble",

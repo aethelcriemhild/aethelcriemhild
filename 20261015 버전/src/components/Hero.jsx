@@ -1,5 +1,6 @@
 import Nav from "./Nav.jsx";
 import { ArchImage, Eyebrow } from "./ui.jsx";
+import { PRELAUNCH_NOTE } from "../data/content.js";
 
 // Warm cream marble (pre-rendered from SVG noise) — evokes the texture of gelato without a stock photo.
 export function MarbleBackdrop() {
@@ -60,6 +61,10 @@ export default function Hero() {
               Our philosophy
             </a>
           </div>
+          <p className="-mt-1 flex items-center gap-2.5 text-sm text-body lg:-mt-3">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-ink" />
+            {PRELAUNCH_NOTE}
+          </p>
         </div>
 
         <figure className="mx-auto flex w-60 flex-col items-center gap-6 sm:w-80 lg:w-[420px]">

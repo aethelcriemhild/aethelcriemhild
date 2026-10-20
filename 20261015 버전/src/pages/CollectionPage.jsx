@@ -1,3 +1,4 @@
+import { ImageryNote } from "../components/Collection.jsx";
 import { SiteHeader } from "../components/Hero.jsx";
 import { ArchImage, ArrowIcon, ArrowLink, Eyebrow, Rich } from "../components/ui.jsx";
 import { COLLECTIONS, collectionBySlug } from "../data/content.js";
@@ -26,10 +27,14 @@ function HeroText({ c, dark }) {
 function Hero({ c }) {
   const layout =
     "relative mx-auto grid max-w-[1440px] items-center gap-12 px-5 pt-12 pb-16 md:px-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-20 lg:px-[120px] lg:pt-16 lg:pb-24";
+  const dark = c.slug === "wicked";
   const arch = (
-    <div className="mx-auto w-60 sm:w-72 lg:w-[400px]">
+    <figure className="mx-auto flex w-60 flex-col gap-6 sm:w-72 lg:w-[400px]">
       <ArchImage src={c.image} alt={c.imageAlt} eager ring={`${c.accent}33`} />
-    </div>
+      <figcaption>
+        <ImageryNote className={`text-center ${dark ? "text-cream/80" : ""}`} />
+      </figcaption>
+    </figure>
   );
 
   // Wicked alone gets a dark, high-contrast hero, using the orange of its photograph.
