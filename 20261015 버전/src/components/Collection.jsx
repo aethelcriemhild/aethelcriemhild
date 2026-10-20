@@ -117,8 +117,8 @@ function FlipCard({ collection, headingLevel }) {
 }
 
 /** The four collections: flip cards on small screens, a four-column grid on desktop. */
-export function ImageryNote({ className = "" }) {
-  return <p className={`text-[13px] leading-relaxed text-muted ${className}`}>{IMAGERY_NOTE}</p>;
+export function ImageryNote({ className = "", tone = "text-muted" }) {
+  return <p className={`text-[13px] leading-relaxed ${tone} ${className}`}>{IMAGERY_NOTE}</p>;
 }
 
 export function CollectionCards({ headingLevel = 3 }) {

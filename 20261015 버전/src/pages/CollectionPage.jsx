@@ -32,7 +32,7 @@ function Hero({ c }) {
     <figure className="mx-auto flex w-60 flex-col gap-6 sm:w-72 lg:w-[400px]">
       <ArchImage src={c.image} alt={c.imageAlt} eager ring={`${c.accent}33`} />
       <figcaption>
-        <ImageryNote className={`text-center ${dark ? "text-cream/80" : ""}`} />
+        <ImageryNote className="text-center" tone={dark ? "text-cream/80" : "text-muted"} />
       </figcaption>
     </figure>
   );
