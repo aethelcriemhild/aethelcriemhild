@@ -5,6 +5,7 @@ import Hero from "./components/Hero.jsx";
 import Philosophy from "./components/Philosophy.jsx";
 import Collection from "./components/Collection.jsx";
 import { MeetTheDesserts, TradeBand } from "./components/Desserts.jsx";
+import Ritual from "./components/Ritual.jsx";
 import Footer from "./components/Footer.jsx";
 import PhilosophyPage from "./pages/PhilosophyPage.jsx";
 import CollectionPage from "./pages/CollectionPage.jsx";
@@ -26,6 +27,7 @@ function Home() {
       <main id="main">
         <Philosophy />
         <Collection />
+        <Ritual />
         <MeetTheDesserts />
         <TradeBand />
       </main>
