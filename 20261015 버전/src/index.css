@@ -34,6 +34,7 @@
   --color-night: #161513;
   --color-alert: #8a3b2a;
   --color-navy: #1f2b40;
+  --color-olive: #434c37; /* from the 2026-10 B2C mockup */
 }
 
 @layer base {
