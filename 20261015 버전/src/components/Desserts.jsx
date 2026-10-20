@@ -14,7 +14,7 @@ function DessertCard({ slug, children }) {
       </div>
       <ArrowLink href={`/${slug}`} className="mt-auto text-ink">
         <span>
-          Discover<span className="sr-only"> {p.name}</span>
+          Discover<span className="sr-only"> {p.fullName ?? p.name}</span>
         </span>
       </ArrowLink>
     </article>

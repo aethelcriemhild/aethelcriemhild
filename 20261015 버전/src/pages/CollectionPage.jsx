@@ -62,7 +62,7 @@ function Hero({ c }) {
 }
 
 function ProductCard({ product, accent }) {
-  const { name, detail, status, href } = product;
+  const { name, detail, status, href, fullName } = product;
   return (
     <article className="flex flex-col gap-3 border bg-paper p-6 lg:p-8" style={{ borderColor: accent }}>
       <h3 className="font-serif text-[30px] leading-tight font-normal lg:text-[34px]">{name}</h3>
@@ -73,7 +73,7 @@ function ProductCard({ product, accent }) {
           href={href}
           className="mt-auto inline-flex items-center gap-3 self-start pt-3 text-sm font-semibold tracking-[0.08em] text-ink uppercase no-underline hover:text-umber"
         >
-          Discover<span className="sr-only"> {name}</span> <ArrowIcon />
+          Discover<span className="sr-only"> {fullName ?? name}</span> <ArrowIcon />
         </a>
       )}
     </article>

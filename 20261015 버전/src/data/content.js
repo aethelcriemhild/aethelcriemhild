@@ -70,7 +70,8 @@ export const COLLECTIONS = [
     body: [
       "Origin honors <em>arche</em> — the first principle, the form from which everything else follows. This collection respects the original character of a dessert. Its expression is Aethel Criemhild Dondurma, known for a dense, elastic texture.",
     ],
-    products: [{ name: "Aethel Criemhild Dondurma", detail: "Milk", status: "Coming soon", href: "/dondurma" }],
+    // Shown as the name "Aethel Criemhild" with "Dondurma" beneath; `fullName` is for screen readers and links.
+    products: [{ name: "Aethel Criemhild", detail: "Dondurma", fullName: "Aethel Criemhild Dondurma", status: "Coming soon", href: "/dondurma" }],
     meta: "Origin, the second Aethel Criemhild collection — the original character of a dessert, kept whole.",
   },
   {
@@ -133,8 +134,9 @@ export const PRODUCTS = {
   },
   dondurma: {
     collection: "origin",
-    name: "Aethel Criemhild Dondurma",
-    descriptor: "Milk",
+    name: "Aethel Criemhild",
+    descriptor: "Dondurma",
+    fullName: "Aethel Criemhild Dondurma",
     status: "Coming soon",
     body: "A dense, elastic texture, with a stretch that makes each spoonful distinctive. This is the first expression of our Origin collection.",
     actions: [

@@ -30,7 +30,7 @@ export default function ProductPage({ slug }) {
             {p.image ? (
               <ArchImage src={p.image} alt={p.imageAlt} eager />
             ) : (
-              <EmblemArch label={`Aethel Criemhild emblem on navy — ${p.name}`} />
+              <EmblemArch label={`Aethel Criemhild emblem on navy — ${p.fullName ?? p.name}`} />
             )}
           </div>
         </div>
