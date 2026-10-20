@@ -33,7 +33,12 @@ export default function Footer() {
         ))}
       </div>
       <div className="flex flex-col gap-2 pt-8 text-center text-xs tracking-[0.04em] text-stone lg:pt-12 lg:text-[13px]">
-        <p>© 2026 Criemhild, Inc. All rights reserved.</p>
+        <p className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <span>© 2026 Criemhild, Inc. All rights reserved.</span>
+          <a href="#top" className="text-stone no-underline hover:text-white hover:underline">
+            Back to top <span aria-hidden="true">↑</span>
+          </a>
+        </p>
         <p>{FOOTER_NOTE}</p>
       </div>
     </footer>

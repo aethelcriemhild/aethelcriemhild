@@ -26,7 +26,7 @@ export function SkipLink() {
 /** Marble band with the navigation — the top of every page other than Home. */
 export function SiteHeader({ children }) {
   return (
-    <header className="relative overflow-hidden bg-hero">
+    <header id="top" className="relative overflow-hidden bg-hero">
       <MarbleBackdrop />
       <SkipLink />
       <Nav />
