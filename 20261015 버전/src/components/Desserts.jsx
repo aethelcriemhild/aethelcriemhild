@@ -1,6 +1,5 @@
-import { PRODUCTS, SOCIAL_LINKS } from "../data/content.js";
-import { trackEvent } from "../data/track.js";
-import { ArchImage, ArrowLink, EmblemArch, Eyebrow } from "./ui.jsx";
+import { PRODUCTS } from "../data/content.js";
+import { ArchImage, ArrowIcon, ArrowLink, EmblemArch, Eyebrow } from "./ui.jsx";
 
 function DessertCard({ slug, children }) {
   const p = PRODUCTS[slug];
@@ -44,9 +43,8 @@ export function MeetTheDesserts() {
   );
 }
 
-/** Home — closing navy band: follow the story, say hello, and a line for trade partners. */
+/** Home — closing navy band: a contact button and a line for trade partners. */
 export function ClosingBand() {
-  const instagram = SOCIAL_LINKS.find((s) => s.name === "Instagram");
   return (
     <section aria-labelledby="closing-heading" className="bg-navy px-5 pt-24 pb-12 text-cream md:px-10 lg:px-[120px] lg:pt-32 lg:pb-14">
       <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-7 text-center lg:gap-8">
@@ -62,21 +60,12 @@ export function ClosingBand() {
           <br />
           Follow along as we prepare our first chapter.
         </p>
-        <div className="mt-2 flex flex-col items-center gap-5 sm:flex-row sm:gap-8">
-          <a
-            href={instagram.href}
-            target="_blank"
-            rel="noopener"
-            onClick={() => trackEvent("social_click", { platform: "Instagram", link_url: instagram.href })}
-            className="inline-flex h-14 items-center justify-center gap-3 bg-cream px-8 text-sm font-semibold tracking-[0.08em] text-ink uppercase no-underline transition-colors hover:bg-white hover:text-ink"
-          >
-            Follow our story <span aria-hidden="true">↗</span>
-            <span className="sr-only">(Instagram, opens in a new tab)</span>
-          </a>
-          <ArrowLink href="/contact" className="text-cream hover:text-champagne">
-            Say hello
-          </ArrowLink>
-        </div>
+        <a
+          href="/contact"
+          className="mt-2 inline-flex h-14 items-center justify-center gap-3 bg-cream px-8 text-sm font-semibold tracking-[0.08em] text-ink uppercase no-underline transition-colors hover:bg-white hover:text-ink"
+        >
+          Contact us <ArrowIcon />
+        </a>
       </div>
 
       <div className="mx-auto mt-20 flex max-w-[1200px] flex-col gap-5 border-t border-cream/15 pt-10 lg:mt-28 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
