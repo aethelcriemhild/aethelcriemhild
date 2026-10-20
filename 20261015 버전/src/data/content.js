@@ -34,6 +34,22 @@ export const FOOTER_NOTE = "Brand preview · Products not yet available";
 export const HOME_PHILOSOPHY =
   "Aethel Criemhild brings the wisdom of ancient Greek philosophy to desserts and indulgent treats — balancing discipline and delight so that every spoonful serves a purpose.";
 
+// Philosophy page: three ideas under the essay.
+export const PRINCIPLES = [
+  {
+    title: "A life well savored",
+    body: "For us, the idea of <em>eudaimonia</em> is an invitation to think about a flourishing life — and to notice the moments that make it feel full.",
+  },
+  {
+    title: "Room for balance",
+    body: "The Golden Mean inspires our point of view. Thoughtfulness and enjoyment can share the same table. Pleasure has a place there, too.",
+  },
+  {
+    title: "Purpose can be simple",
+    body: "Pause in the afternoon. Share a conversation after dinner. Enjoy a moment that needs no occasion. A spoonful can be enough of a reason.",
+  },
+];
+
 // The four collections. `accent` is used sparingly — hero rule, arch ring, product-card borders.
 export const COLLECTIONS = [
   {

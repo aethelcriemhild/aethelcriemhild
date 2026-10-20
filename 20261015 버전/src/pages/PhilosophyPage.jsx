@@ -1,7 +1,8 @@
 import { CollectionCards } from "../components/Collection.jsx";
 import { SiteHeader } from "../components/Hero.jsx";
 import { GoldenMeanScale } from "../components/Philosophy.jsx";
-import { Eyebrow } from "../components/ui.jsx";
+import { Eyebrow, Rich } from "../components/ui.jsx";
+import { PRINCIPLES } from "../data/content.js";
 
 const ESSAY = [
   <>
@@ -54,6 +55,23 @@ export default function PhilosophyPage() {
                 {p}
               </p>
             ))}
+          </div>
+
+          <div className="w-full max-w-[860px]">
+            <h2 className="sr-only">What guides us</h2>
+            <ol className="border-t border-line">
+              {PRINCIPLES.map((p, i) => (
+                <li key={p.title} className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-3 border-b border-line py-8 lg:grid-cols-[4.5rem_minmax(0,1fr)] lg:py-10">
+                  <span className="pt-2 text-sm text-muted tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="flex flex-col gap-3">
+                    <h3 className="font-serif text-[32px] leading-tight font-normal lg:text-[44px]">{p.title}</h3>
+                    <p className="text-[17px] leading-[1.7] text-body lg:text-lg">
+                      <Rich text={p.body} />
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
 
           <figure className="flex w-full flex-col items-center gap-4">
